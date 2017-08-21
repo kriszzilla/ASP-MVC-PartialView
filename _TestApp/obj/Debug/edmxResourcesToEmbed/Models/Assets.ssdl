@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestAssetDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TestAssetDB.dbo.Books' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Books">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TestAssetDB.dbo.Pens' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Pens">
+    <Key>
+      <PropertyRef Name="PenId" />
+    </Key>
+    <Property Name="PenId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="InkColor" Type="varchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TestAssetDB.dbo.Toys' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Toys">
+    <Key>
+      <PropertyRef Name="ToyId" />
+    </Key>
+    <Property Name="ToyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="BodyShape" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="TestAssetDBModelStoreContainer">
+    <EntitySet Name="Books" EntityType="Self.Books" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Books].[BookId] AS [BookId], 
+    [Books].[Description] AS [Description], 
+    [Books].[Price] AS [Price], 
+    [Books].[Quantity] AS [Quantity]
+    FROM [dbo].[Books] AS [Books]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Pens" EntityType="Self.Pens" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Pens].[PenId] AS [PenId], 
+    [Pens].[Description] AS [Description], 
+    [Pens].[Price] AS [Price], 
+    [Pens].[Quantity] AS [Quantity], 
+    [Pens].[InkColor] AS [InkColor]
+    FROM [dbo].[Pens] AS [Pens]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Toys" EntityType="Self.Toys" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Toys].[ToyId] AS [ToyId], 
+    [Toys].[Description] AS [Description], 
+    [Toys].[Price] AS [Price], 
+    [Toys].[Quantity] AS [Quantity], 
+    [Toys].[BodyShape] AS [BodyShape]
+    FROM [dbo].[Toys] AS [Toys]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

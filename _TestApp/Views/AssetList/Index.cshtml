@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div>
+    <input type="text" id="asset-id" />
+    <input type="text" id="asset-description"/>
+    <select id="asset-type">
+        <option value="ListOfBooks">Book</option>
+        <option value="ListOfPens">Pen</option>
+        <option value="ListOfToys">Toy</option>
+    </select>
+
+    <button id="btn-search">Search Something</button>
+</div>
+
+
+<div class="container" id="list-of-asset"></div>
+
+@section scripts{
+    <script>
+        $('#btn-search').click(function () {
+
+            $.ajax({
+                url: '/AssetList/' + $("#asset-type").val(),
+                contentType: 'application/html; charset=utf-8',
+                data: { varID: $("#asset-id").val(), varDescription: $("#asset-description").val() },
+                type: 'GET',
+                dataType: 'html'
+
+            })
+                .success(function (result) {
+                    $('#list-of-asset').html(result);
+                   
+                })
+                .error(function (xhr, status) {
+                    alert(status);
+                })
+        });
+
+    </script>
+}

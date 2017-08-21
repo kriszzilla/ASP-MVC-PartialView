@@ -1,0 +1,17 @@
+﻿@using _TestApp.Models
+@model  IEnumerable<Pen>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+    </tr>
+    @foreach (Pen _pen in Model)
+    {
+        <tr>
+            <td>@_pen.PenId</td>
+            <td>@_pen.Description</td>
+            <td>@Html.ActionLink("EDIT", "_ActionName", "_ControllerName", new { type = "Book", typeid = _pen.PenId }) </td>
+        </tr>
+    }
+</table>

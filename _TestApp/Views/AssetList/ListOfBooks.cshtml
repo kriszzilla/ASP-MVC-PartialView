@@ -1,0 +1,17 @@
+﻿@using _TestApp.Models
+@model IEnumerable<Book>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+    </tr>
+    @foreach (Book _books in Model)
+    {
+        <tr>
+            <td>@_books.BookId</td>
+            <td>@_books.Description</td>
+            <td>@Html.ActionLink("EDIT", "_ActionName", new { type = "Book", typeid = _books.BookId }) </td>
+        </tr>
+    }
+</table>
+<br/>
